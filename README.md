@@ -5,20 +5,22 @@ Where Have I Seen This Actor Before - A simple application to answer a simple qu
 - Python `>=3.10.4`
 - `pyenv`, `pyenv-virtualenv`
 - `poetry`
-
-## Optional
-
-To set up the project using the `Vagrantfile`:
 - Vagrant
 - VirtualBox
 
-```bash
-# make sure to cd into the project directory
-cd whistab
+## Initial set up
 
-# create or power on the VM
-vagrant up
+- move to the project directory
+    ```bash
+    cd whistab
+    ```
 
-# wait until the VM is up and then
-vagrant ssh
-```
+- create the Vagrant box
+    ```bash
+    vagrant up 2>&1 | tee -a $(date +%F)-vagrant-up.log
+    ```
+
+- wait until the Vagrant box is up, then
+    ```bash
+    vagrant ssh
+    ```
