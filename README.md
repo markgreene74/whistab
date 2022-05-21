@@ -1,5 +1,5 @@
 # whistab
-Where Have I Seen This Actor Before - A simple application to answer a simple question
+Where Have I Seen This Actor|Actress Before - A simple application to answer a simple question
 
 ## Requirements
 - Python `>=3.10.4`
