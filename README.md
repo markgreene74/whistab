@@ -1,3 +1,5 @@
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 # whistab
 
 **W**here **H**ave **I** **S**een **T**his **A**ctor|**A**ctress **B**efore - A simple application to answer a simple question
