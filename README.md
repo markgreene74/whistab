@@ -1,26 +1,16 @@
 # whistab
-Where Have I Seen This Actor|Actress Before - A simple application to answer a simple question
+
+**W**here **H**ave **I** **S**een **T**his **A**ctor|**A**ctress **B**efore - A simple application to answer a simple question
 
 ## Requirements
 - Python `>=3.10.4`
 - `pyenv`, `pyenv-virtualenv`
 - `poetry`
+
+(optional)
 - Vagrant
 - VirtualBox
 
-## Initial set up
+## Get started
 
-- move to the project directory
-    ```bash
-    cd whistab
-    ```
-
-- create the Vagrant box
-    ```bash
-    vagrant up 2>&1 | tee -a $(date +%F)-vagrant-up.log
-    ```
-
-- wait until the Vagrant box is up, then
-    ```bash
-    vagrant ssh
-    ```
+Go to [docs/get-started.md](docs/get-started.md)
