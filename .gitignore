@@ -131,3 +131,9 @@ dmypy.json
 ##### custom #####
 .vagrant/
 *-vagrant-up.log
+
+*.tgz
+*.gz
+*.tsv
+
+*.ipynb
