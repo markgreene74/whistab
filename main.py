@@ -1,7 +1,8 @@
 import logging
-import tarfile
 import urllib3
 import os
+import gzip
+import shutil
 
 
 DATA_MAIN_URL = "https://datasets.imdbws.com"
@@ -18,32 +19,35 @@ DATA_FILES = [
 
 def load_data():
     logging.info("Loading data")
+    chunk_size = 1000
 
     for _file in DATA_FILES:
         _file_url = DATA_MAIN_URL + "/" + _file
-        if os.path.isfile(_file):
+
+        if os.path.isfile("data/" + _file) and os.path.isfile(
+            "data/" + _file.replace(".gz", "")
+        ):
+            logging.debug(f"file {_file} is already there")
             continue
-        print(f"downloading file {_file_url}")
 
-    """url = 'https://datasets.imdbws.com/name.basics.tsv.gz'
-    chunk_size = 1000
-    http = urllib3.PoolManager()
-    r = http.request('GET', url, preload_content=False)
+        logging.info(f"downloading file {_file_url}")
 
-    with open('text_file', 'wb') as out:
-        while True:
-            data = r.read(chunk_size)
-            if not data:
-                break
-            out.write(data)
+        http = urllib3.PoolManager()
+        r = http.request("GET", _file_url, preload_content=False)
 
-    r.release_conn()"""
+        with open("data/" + _file, "wb") as out:
+            while True:
+                data = r.read(chunk_size)
+                if not data:
+                    break
+                out.write(data)
 
-    """tar = tarfile.open("filename.tar.gz", "r:gz")
-    for member in tar.getmembers():
-        f = tar.extractfile(member)
-        if f is not None:
-            content = f.read()"""
+        r.release_conn()
+
+        with gzip.open("data/" + _file, "rb") as f_in:
+            logging.info(f"saving file {_file.replace('.gz', '')}")
+            with open("data/" + _file.replace(".gz", ""), "wb") as f_out:
+                shutil.copyfileobj(f_in, f_out)
 
 
 def main():
