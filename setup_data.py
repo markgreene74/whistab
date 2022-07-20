@@ -22,6 +22,7 @@ def load_data():
     chunk_size = 1000
 
     for _file in DATA_FILES:
+        print(f"Processing {_file}")
         _file_url = DATA_MAIN_URL + "/" + _file
 
         if os.path.isfile("data/" + _file) and os.path.isfile(
