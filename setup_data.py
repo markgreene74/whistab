@@ -3,6 +3,7 @@ import urllib3
 import os
 import gzip
 import shutil
+import pandas as pd
 
 
 DATA_MAIN_URL = "https://datasets.imdbws.com"
@@ -51,9 +52,16 @@ def load_data():
                 shutil.copyfileobj(f_in, f_out)
 
 
+def process_base_name():
+    df = pd.read_csv('data/name.basics.tsv', sep="\t")
+    df = df.iloc[:, :2]
+    df.to_csv("data/base.csv")
+
+
 def main():
     logging.info("Starting the setup (download the fresh data and populate the database)")
     load_data()
+    process_base_name()
 
 
 if __name__ == "__main__":
