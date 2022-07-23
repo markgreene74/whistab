@@ -7,11 +7,7 @@ import pandas as pd
 
 
 DATA_MAIN_URL = "https://datasets.imdbws.com"
-DATA_FILES = [
-    "name.basics.tsv.gz",
-    "title.basics.tsv.gz",
-    "title.principals.tsv.gz"
-]
+DATA_FILES = ["name.basics.tsv.gz", "title.basics.tsv.gz", "title.principals.tsv.gz"]
 
 
 def download_data():
@@ -49,20 +45,22 @@ def download_data():
 
 
 def process_base_name():
-    df = pd.read_csv('data/name.basics.tsv', sep="\t")
+    df = pd.read_csv("data/name.basics.tsv", sep="\t")
     df = df.iloc[:, :2]
     df.to_csv("data/base.csv")
 
 
 def populate_database():
-    data_files = ['data/' + f.replace('.gz', '') for f in DATA_FILES ]
+    data_files = ["data/" + f.replace(".gz", "") for f in DATA_FILES]
     for f in data_files:
         df = pd.read_csv(f, sep="\t")
         # TODO send the df to the database
 
 
 def main():
-    logging.info("Starting the setup (download the fresh data and populate the database)")
+    logging.info(
+        "Starting the setup (download the fresh data and populate the database)"
+    )
     download_data()
     process_base_name()
     populate_database()

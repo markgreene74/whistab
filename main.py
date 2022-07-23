@@ -7,10 +7,10 @@ import pandas as pd
 
 
 def search_actor(name):
-    df = pd.read_csv('data/base.csv')
+    df = pd.read_csv("data/base.csv")
     name = name.lower()
-    result = df[df['primaryName'].str.lower().str.contains(name)]
-    return result.iloc[:,0].to_list()
+    result = df[df["primaryName"].str.lower().str.contains(name)]
+    return result.iloc[:, 0].to_list()
 
 
 def main():
@@ -19,4 +19,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
