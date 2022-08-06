@@ -28,19 +28,19 @@ After creating the environment continue with [Install the requirements](#install
 - install `pyenv` ([documentation](https://github.com/pyenv/pyenv#installation)) and `pyenv-virtualenv` ([documentation](https://github.com/pyenv/pyenv-virtualenv#installation))
 
 
-- install Python `3.10.4`
+- install Python `3.10.5`
   ```bash
-  pyenv install 3.10.4
+  pyenv install 3.10.5
   ```
 
 - create a virtual environment
   ```bash
-  pyenv virtualenv 3.10.4 whistab-3-10-4
+  pyenv virtualenv 3.10.5 whistab-3-10-5
   ```
 
 - activate the virtual environment
   ```bash
-  pyenv activate whistab-3-10-4
+  pyenv activate whistab-3-10-5
   ```
 
 - go to the next section to [install the requirements](#install-the-requirements)
